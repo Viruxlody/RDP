@@ -1,0 +1,13 @@
+Activating RDP via the Windows CMD (Command Prompt) is useful when automating RDP setups across multiple Windows machines or creating scripts to streamline the configuration process.
+
+1. Type cmd in the Windows search box.
+
+2. Select Run as administrator to open the Command Prompt with administrative privileges.
+
+3. The reg command is used to modify the Windows Registry. Enter the following command to enable RDP:
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+
+4. (Optional) If the Windows Firewall is activated, use the following command to enable RDP connections:
+netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
+
+The Windows system is ready to accept RDP connections.
